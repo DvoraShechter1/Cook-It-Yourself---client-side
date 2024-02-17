@@ -1,0 +1,31 @@
+.general{
+    img{
+        border: 3px double rgb(255, 128, 82);
+        /* background-color: plum; */
+        height: 100%;
+        width: 30%;
+        padding: 10px;
+    }
+    color: rgb(255, 128, 82);
+}
+.birthday{
+    img{
+        border: 3px dotted pink;
+        height: 100%;
+        width: 30%;
+        padding: 10px;
+    }
+    color: pink;
+    font-size: large;
+    p{
+        font-family: 'Edwardian Script ITC','Guttman Yad-Brush','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+}
+/* div{
+    width: 40%;
+    border: 5px black double;
+} */
+.card{
+    background-color: rebeccapurple;
+    border: 5px black double;
+}
