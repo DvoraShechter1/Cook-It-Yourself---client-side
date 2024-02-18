@@ -27,6 +27,7 @@ export const Recipe = (r) => {
         let divInfo = document.getElementById(`popupdiv${r.id}`);
         let others = document.getElementsByClassName('popupGroup')
         for (let i = 0; i < others.length; i++) {
+            debugger
             others[i].style.display = 'none';
 
         }

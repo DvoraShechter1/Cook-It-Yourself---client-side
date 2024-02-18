@@ -1,9 +1,5 @@
-// export const Details = ()=>{
-//     return<h1>!!!!!!!!!!!!!!!!!!!!!!!!!!!</h1>
-// }
 import '../css/details.css'
 export const Details = (r) => {
-
 
     function Hide() {
         let divInfo = document.getElementById('popupdiv');
@@ -37,13 +33,9 @@ export const Details = (r) => {
                 <div class="content">
                     <h2>{recipe.name}</h2>
                     <p>{recipe.preparationTime}</p>
-
                 </div>
-
             </div>
-
         </div>
 
     </>
-
 }

@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from "react"
 import { addLevel, getLevel } from "../api"
-// import { addCategory, getCategory } from "../api"
 import Button from 'react-bootstrap/Button';
 
 export const Levels = ()=>{

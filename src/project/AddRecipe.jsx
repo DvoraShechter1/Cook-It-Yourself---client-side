@@ -13,12 +13,8 @@ export const AddRecipe = () => {
     useEffect(() => {
         getCategory()
             .then(x => { setList1(x) })
-    }, [])
-    useEffect(() => {
         getLevel()
             .then(x => { setList2(x) })
-    }, [])
-    useEffect(() => {
         getIngredient()
             .then(x => { setList3(x) })
     }, [])

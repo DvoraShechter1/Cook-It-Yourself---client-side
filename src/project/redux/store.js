@@ -10,13 +10,13 @@ const initialState = {
         "email": "adm@gmail.com",
         "password": "1234"
     },
-    currentUser: {}
+    // currentUser: {}
 }
 
 
 const reducer = produce((state, action) => {
-    if(action.type == 'SET_CURRENT_USER')
-        return { ...state, currentUser: action.payload }
+    // if(action.type == 'SET_CURRENT_USER')
+    //     return { ...state, currentUser: action.payload }
     return {state}
 }, initialState)
 

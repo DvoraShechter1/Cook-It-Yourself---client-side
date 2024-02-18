@@ -4,6 +4,7 @@ import { useSelector } from "react-redux"
 import { getRecipe } from "./api"
 
 import './css/recipes.css'
+import { GetUser } from "./function"
 export const MyRecipes = () => {
     const [listRecipe, setListRecipe] = useState()
     useEffect(() => {
@@ -11,7 +12,8 @@ export const MyRecipes = () => {
             .then(x => { setListRecipe(x) })
     }, [])
 
-    let user = useSelector(u => { return u.currentUser });
+    // let user = useSelector(u => { return u.currentUser });
+    let user= GetUser()
 
     const isMatch = (r) => {
         if ((r.userName == user.firstName + " " + user.lastName))

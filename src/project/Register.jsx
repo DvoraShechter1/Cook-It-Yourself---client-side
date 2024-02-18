@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router"
 import { addUser, getUser } from "./api"
-import { setCurrentUser } from "./redux/action"
-import { useDispatch } from "react-redux"
+// import { setCurrentUser } from "./redux/action"
+// import { useDispatch } from "react-redux"
+import { SetUser } from "./function"
 
 export const Register = () => {
     const nav = useNavigate()//כדי לשנות ניתוב
-    const dis = useDispatch()
+    // const dis = useDispatch()
 
     const send = async (event) => {
         // submit מבטל את ברירת המחדל של האירוע
@@ -30,7 +31,8 @@ export const Register = () => {
             }
             else {
                 user1 = await addUser(user)
-                dis(setCurrentUser(user1))
+                // dis(setCurrentUser(user1))
+                SetUser(user1)
                 console.log(user1);
                 nav('/Home')
                 

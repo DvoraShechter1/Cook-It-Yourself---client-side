@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router"
-import { getUser } from "./api"
-import { GetUser, SetUser } from "./function"
+import { getUser } from "../api"
+import { GetUser, SetUser } from "../function"
 import { useState } from "react"
 
 
@@ -8,7 +8,7 @@ import { useState } from "react"
 
 export const Login = () =>{
     const nav = useNavigate()//כדי לשנות ניתוב
-    const [user, setUser] = useState()
+    const [user, setUser] = useState(GetUser())
     // let user = GetUser()
     // let user = useSelector(u=> {return u.currentUser});
     // const dis = useDispatch()
@@ -16,19 +16,17 @@ export const Login = () =>{
     const send = async (event) => {
         // submit מבטל את ברירת המחדל של האירוע
         event.preventDefault()
-        const u = {
+        const user = {
             email: event.target[0].value,
             password: event.target[1].value
         }
-        let user1 = await getUser(u.email,u.password)
+        let user1 = await getUser(user.email,user.password)
         if(!user1){
             nav('/Home/Register')
         }
         else {
             // dis(setCurrentUser(user1))
-            SetUser(user1)
-            setUser(GetUser())
-            console.log(user);
+            setUser(SetUser(user1))
             nav('/Home')
         }
     }
