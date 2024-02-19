@@ -1,6 +1,7 @@
 
 import { produce } from 'immer'
 import { createStore } from 'redux'
+import { GetUser, SetUser } from '../function'
 
 const initialState = {
     admin:{
@@ -10,13 +11,15 @@ const initialState = {
         "email": "adm@gmail.com",
         "password": "1234"
     },
-    // currentUser: {}
+     currentUser: GetUser()
 }
 
 
 const reducer = produce((state, action) => {
-    // if(action.type == 'SET_CURRENT_USER')
-    //     return { ...state, currentUser: action.payload }
+    if(action.type == 'SET_CURRENT_USER'){
+        SetUser(action.payload)
+        return { ...state, currentUser: action.payload }
+    }
     return {state}
 }, initialState)
 

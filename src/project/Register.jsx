@@ -1,12 +1,20 @@
 import { useNavigate } from "react-router"
 import { addUser, getUser } from "./api"
-// import { setCurrentUser } from "./redux/action"
-// import { useDispatch } from "react-redux"
-import { SetUser } from "./function"
+import { useDispatch } from "react-redux"
+import { setCurrentUser } from "./redux/action"
+import { useState } from "react"
+import Offcanvas from 'react-bootstrap/Offcanvas';
+
+import './css/style.css'
 
 export const Register = () => {
+    const [show, setShow] = useState(true);
+
+    const handleClose = () => {setShow(false); nav('/Home')};
+    const handleShow = () => setShow(true);
+
     const nav = useNavigate()//כדי לשנות ניתוב
-    // const dis = useDispatch()
+    const dis = useDispatch()
 
     const send = async (event) => {
         // submit מבטל את ברירת המחדל של האירוע
@@ -20,54 +28,57 @@ export const Register = () => {
                 email: event.target[2].value,
                 password: event.target[3].value
             }
-
-            let user1 = await getUser(user.email,user.password)
-            
-
+            let user1 = await getUser(user.email, user.password)
             console.log(user1)
-
             if (user1) {
                 alert('כבר קיים משתמש עם אימייל וסיסמא זהים')
             }
             else {
                 user1 = await addUser(user)
-                // dis(setCurrentUser(user1))
-                SetUser(user1)
+                dis(setCurrentUser(user1))
+
                 console.log(user1);
                 nav('/Home')
-                
             }
         }
     }
-
     return <>
-        <form onSubmit={(e) => send(e)}>
-        <label htmlFor={'ln'}>last name:</label>
-            <br></br>
-            <input id={'ln'} placeholder="input last name"></input>
-            <br></br>
-            <br></br>            
-            <label htmlFor={'fn'}>first name:</label>
-            <br></br>
-            <input id={'fn'} placeholder="input first name"></input>
-            <br></br>
-            <br></br>
-            <label htmlFor={'mail'}>mail:</label>
-            <br></br>
-            <input id={'mail'} placeholder="input mail" required></input>
-            <br></br>
-            <br></br>
-            <label htmlFor={'pw'}>Password:</label>
-            <br></br>
-            <input id={'pw'} placeholder="input password" required type="password"></input>
-            <br></br>
-            <br></br>
-            <label htmlFor={'pwa'}>Password again:</label>
-            <br></br>
-            <input id={'pwa'} placeholder="input password again" required type="password"></input>
-            <br></br>
-            <br></br>
-            <input type="submit" value={'send'}></input>
-        </form>
+        <Offcanvas show={show} onHide={handleClose} placement={'end'}>
+            <Offcanvas.Header closeButton>
+                <Offcanvas.Title>הרשמה</Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+            <div className="from">
+                <form onSubmit={(e) => send(e)}>
+                    <label htmlFor={'ln'}>last name:</label>
+                    <br></br>
+                    <input id={'ln'} placeholder="input last name"></input>
+                    <br></br>
+                    <br></br>
+                    <label htmlFor={'fn'}>first name:</label>
+                    <br></br>
+                    <input id={'fn'} placeholder="input first name"></input>
+                    <br></br>
+                    <br></br>
+                    <label htmlFor={'mail'}>mail:</label>
+                    <br></br>
+                    <input id={'mail'} placeholder="input mail" required></input>
+                    <br></br>
+                    <br></br>
+                    <label htmlFor={'pw'}>Password:</label>
+                    <br></br>
+                    <input id={'pw'} placeholder="input password" required type="password"></input>
+                    <br></br>
+                    <br></br>
+                    <label htmlFor={'pwa'}>Password again:</label>
+                    <br></br>
+                    <input id={'pwa'} placeholder="input password again" required type="password"></input>
+                    <br></br>
+                    <br></br>
+                    <input type="submit" value={'send'}></input>
+                </form>
+            </div>
+        </Offcanvas.Body>
+    </Offcanvas >
     </>
 }

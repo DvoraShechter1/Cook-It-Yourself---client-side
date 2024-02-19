@@ -23,6 +23,15 @@ export const getUser = async (email, pass) => {
     return newUser
 }
 
+export const getUsers=async ()=>{
+    let users = null
+    try {
+        await axios.get(`${url}/User`).then(result => users = result.data)
+    }
+    catch { return null }
+    return users
+}
+
 
 //הוספת קטגוריה והחזרת רשימת הקטגוריות המעודכנת
 export const addCategory = async (c) => {

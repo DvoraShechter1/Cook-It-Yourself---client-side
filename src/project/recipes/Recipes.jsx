@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getCategory, getLevel, getRecipe } from "../api"
+import { getCategory, getLevel, getRecipe, getUsers } from "../api"
 import { Recipe } from "./Recipe"
 
 import '../css/select.css'
@@ -9,27 +9,17 @@ export const Recipes = () => {
 
     const [listCategory, setListCategory] = useState()
     const [listLevel, setListLevel] = useState()
+    const [listUser, setListUser] = useState()
 
     const [listRecipe, setListRecipe] = useState()
-
-    // useEffect(() => {
-    //     getCategory()
-    //         .then(x => { setListCategory(x) })
-    // }, [])
-    // useEffect(() => {
-    //     getLevel()
-    //         .then(x => { setListLevel(x) })
-    // }, [])
-    // useEffect(() => {
-    //     getRecipe()
-    //         .then(x => { setListRecipe(x) })
-    // }, [])
 
     useEffect(() => {
         getCategory()
             .then(x => { setListCategory(x) });
         getLevel()
             .then(x => { setListLevel(x) });
+        getUsers()
+            .then(x => { setListUser(x) });
         getRecipe()
             .then(x => { setListRecipe(x) });
     }, [])
@@ -52,7 +42,13 @@ export const Recipes = () => {
             <li>
                 <label htmlFor="editor">בחר עורך מתכונים</label>
                 <br></br>
-                <input className="sort" id="editor" defaultValue={'כל העורכים'} onChange={x => setEditor(x.target.value)}></input>
+                {/* <input className="sort" id="editor" defaultValue={'כל העורכים'} onChange={x => setEditor(x.target.value)}></input> */}
+                <select className="sort" id="editor" defaultValue={'כל העורכים'} onChange={x => setEditor(x.target.value)}>
+                    <option key={0}>כל העורכים</option>
+                    {listUser && listUser.map((u, i) =>
+                        <option key={u.id}>{`${u.firstName} ${u.lastName}`}</option>
+                    )}
+                </select>
             </li>
             <li>
                 {/* בחירת קטגוריות להצגה */}

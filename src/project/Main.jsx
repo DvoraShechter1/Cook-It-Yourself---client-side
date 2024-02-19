@@ -3,6 +3,7 @@ import { Routing } from "./Routing"
 import { Nav } from "./Nav"
 import { Provider } from "react-redux"
 import store from "./redux/store"
+import Example from "./recipes/Details"
 
 export const Main = () => {
     return <>
@@ -10,6 +11,7 @@ export const Main = () => {
             <BrowserRouter>
                 <Nav></Nav>
                 <Routing></Routing>
+                {/* <Example></Example> */}
             </BrowserRouter>
         </Provider>
     </>

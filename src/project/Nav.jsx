@@ -2,28 +2,10 @@ import { useDispatch, useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import { IsAdm } from "./adm/function";
 import './css/nav.css'
-import { GetUser } from "./function";
-
-// export const Nav = () =>{
-//     let user = useSelector(u=> {return u.currentUser});
-//     const dis = useDispatch()
-//     console.log(user);
-
-//     return<>
-//         <div id="nav">
-//             {user && <div>{user.firstName}</div>}
-//             <NavLink className={'link'} to={"/Home"}>דף הבית</NavLink>
-//             <NavLink className={'link'} to={'/Recipes'}>המתכונים שלנו</NavLink>
-//             {user &&<NavLink className={'link'} to={'/Personal'}>אזור אישי</NavLink>}
-//             {isAdm(user) &&<NavLink className={'link'} to={'/Category'}>קטגוריות</NavLink>}
-//             {isAdm(user) &&<NavLink className={'link'} to={'/Level'}>רמות</NavLink>}
-//         </div>
-//     </>
-// }
 
 export const Nav = () => {
-    // let user = useSelector(u => { return u.currentUser });
-    let user = GetUser();
+    let user = useSelector(u => { return u.currentUser });
+    // let user = GetUser();
     // const dis = useDispatch()
     console.log(user);
 
@@ -37,7 +19,6 @@ export const Nav = () => {
                 <li><NavLink className={'link'} to={'/Recipes'}>המתכונים שלנו</NavLink></li>
                 <li><NavLink className={'link'} to={"/Home"}>דף הבית</NavLink></li>
             </ul>
-            {/* <br></br> */}
         </nav>
     </>
 }

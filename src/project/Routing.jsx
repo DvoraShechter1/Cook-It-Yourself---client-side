@@ -1,13 +1,13 @@
 import { Route, Routes } from "react-router"
 import { Home } from "./Home"
 import { Register } from "./Register"
-import { Login } from "./Login"
 import { Recipes } from "./recipes/Recipes"
 import { Personal } from "./Personal"
 import { MyRecipes } from "./MyRecipes"
 import { AddRecipe } from "./AddRecipe"
 import { Categories } from "./adm/Categories"
 import { Levels } from "./adm/Levels"
+import { OffCanvasLogin } from "./Login"
 
 
 export const Routing = () => {
@@ -15,7 +15,9 @@ export const Routing = () => {
         <Routes>
             <Route path="Home" element={<Home></Home>}>
                 <Route path="Register" element={<Register></Register>}></Route>
-                <Route path="Login" element={<Login></Login>}></Route>
+                {/* <Route path="Login" element={<Login></Login>}></Route> */}
+                <Route path="Login" element={<OffCanvasLogin></OffCanvasLogin>}></Route>
+
             </Route>
             <Route path="Recipes" element={<Recipes></Recipes>}></Route>
             <Route path="Personal" element={<Personal></Personal>}>
