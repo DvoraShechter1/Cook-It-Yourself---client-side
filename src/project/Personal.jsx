@@ -7,7 +7,5 @@ export const Personal = () => {
             <NavLink to={'AddRecipe'} className='plink'>הוספת מתכון</NavLink>
         </div>
         <Outlet></Outlet>
-
-
     </>
 }

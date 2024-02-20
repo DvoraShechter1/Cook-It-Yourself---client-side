@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react"
 import { addIngredient, addIngredientsToRecipe, addRecipe, getCategory, getIngredient, getLevel, getUser } from "./api"
 import { useSelector } from "react-redux"
+import Button from "react-bootstrap/esm/Button"
 
 export const AddRecipe = () => {
 
@@ -21,7 +22,6 @@ export const AddRecipe = () => {
 
     const ref = useRef()
     let currentUser = useSelector(u => { return u.currentUser });
-
 
     const send = async (event) => {
         // submit מבטל את ברירת המחדל של האירוע
@@ -44,7 +44,6 @@ export const AddRecipe = () => {
 
         console.log(recipe)
 
-
         addRecipe(recipe).then(
             r => {
                 console.log(r)
@@ -61,18 +60,8 @@ export const AddRecipe = () => {
                             "ingredientName": document.getElementById(list[i].id).getAttribute('data-n'),
                             "amount": list[i].value
                         }
-                        // setResList([...resList, ir])
                         resList.push(ir)
-                        console.log(resList,'\n', ir)
-                        // const ir = [{
-                        //     // "id": 0,
-                        //     "recipeId": r,
-                        //     "ingredientId": list[i].id,
-                        //     // "ingredientName": list[i].data-n,
-                        //     "ingredientName": document.getElementById(list[i].id).getAttribute('data-n'),
-                        //     "amount": list[i].value
-                        // }]
-                        // addIngredientsToRecipe(ir)//.then(x => console.log(x))
+                        console.log(resList, '\n', ir)
                     }
                 }
                 console.log(resList)
@@ -117,7 +106,6 @@ export const AddRecipe = () => {
             <br></br>
             <br></br>
             <select required>
-                {/* <option selected disabled>קטגוריה</option> */}
                 {list1 && list1.map((x, i) =>
                     <option key={x.id}>{x.name}</option>
                 )}
@@ -125,14 +113,12 @@ export const AddRecipe = () => {
             <br></br>
             <br></br>
             <select required>
-                {/* <option selected disabled>רמה</option> */}
                 {list2 && list2.map((x, i) =>
                     <option key={x.id}>{x.name}</option>
                 )}
             </select>
             <br></br>
             <br></br>
-
             <label>הכנס כמות עבור הרכיבים הרלוונטים</label>
             {list3 && list3.map(x =>
                 <div key={x.id}>
@@ -144,12 +130,9 @@ export const AddRecipe = () => {
             <br></br>
             <input ref={ref} placeholder="הוסף רכיב"></input>
             <br></br>
-            <button id="btn" onClick={f_click}>הוסף</button>
+            <Button id="btn" onClick={f_click} variant="outline-primary">הוסף</Button>
             <br></br>
             <br></br>
-
-
-
             <input type="submit" value={'send'}></input>
         </form>
     </>

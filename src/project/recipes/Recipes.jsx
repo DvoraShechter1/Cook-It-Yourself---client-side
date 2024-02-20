@@ -32,7 +32,6 @@ export const Recipes = () => {
         if ((!category || category == 'כל הקטגוריות' || r.categoryName == category) &&
             (!level || level == 'כל הרמות' || r.levelName == level) &&
             (!editor || editor == 'כל העורכים' || r.userName == editor))
-            //return true
             return <Recipe className='card' key={r.id} r={r}></Recipe>
         return false
     }
@@ -42,7 +41,6 @@ export const Recipes = () => {
             <li>
                 <label htmlFor="editor">בחר עורך מתכונים</label>
                 <br></br>
-                {/* <input className="sort" id="editor" defaultValue={'כל העורכים'} onChange={x => setEditor(x.target.value)}></input> */}
                 <select className="sort" id="editor" defaultValue={'כל העורכים'} onChange={x => setEditor(x.target.value)}>
                     <option key={0}>כל העורכים</option>
                     {listUser && listUser.map((u, i) =>

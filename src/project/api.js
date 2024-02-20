@@ -17,13 +17,13 @@ export const getUser = async (email, pass) => {
     let newUser = null
     try {
         await axios.get(`${url}/User/${email}/${pass}`)
-        .then(result => {newUser = result.data})
+            .then(result => { newUser = result.data })
     }
     catch { return null }
     return newUser
 }
 
-export const getUsers=async ()=>{
+export const getUsers = async () => {
     let users = null
     try {
         await axios.get(`${url}/User`).then(result => users = result.data)
@@ -38,7 +38,7 @@ export const addCategory = async (c) => {
     let category = null
     try {
         await axios.post(`${url}/Category`, c)
-        .then(result => category = result.data)
+            .then(result => category = result.data)
     }
     catch { return null }
     return category
@@ -112,13 +112,13 @@ export const getRecipe = async () => {
 }
 
 //הוספת רכיבים למתכון והחזרה האם הצליח
-export const addIngredientsToRecipe =  (i) => {
+export const addIngredientsToRecipe = (i) => {
     debugger
     console.log(i)
-    try{
-        axios.post(`${url}/IngredientsToRecipe`, i).then(x=>{return x})
+    try {
+        axios.post(`${url}/IngredientsToRecipe`, i).then(x => { return x })
     }
-    catch {return false}
+    catch { return false }
 }
 //החזרת רכיבי מתכון לפי הקוד
 export const getIngredientsToRecipe = async (recipeId) => {
@@ -131,11 +131,11 @@ export const getIngredientsToRecipe = async (recipeId) => {
 }
 
 //הוספת תגובה למתכון והחזרה האם הצליח
-export const addCommentsToRecipe = async (r) => {
+export const addCommentsToRecipe = async (c) => {
     let commentsToRecipe = null
     try {
-        await axios.post(`${url}/CommentsToRecipe`, r)
-        .then(result => commentsToRecipe = result.data)
+        await axios.post(`${url}/CommentsToRecipe`, c)
+            .then(result => commentsToRecipe = result.data)
         if (commentsToRecipe)
             return true
     }

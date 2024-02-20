@@ -1,13 +1,13 @@
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import { IsAdm } from "./adm/function";
 import './css/nav.css'
 
 export const Nav = () => {
-    let user = useSelector(u => { return u.currentUser });
+    //u.state.currentUser  לא משתנה כשמרפרשים אבל רק אז מופיע
+    //u.currentUser  משתנה בריפרוש אבל כשנכנסים נוסף מיד 
+    let user = useSelector(u => {return u.currentUser });
     // let user = GetUser();
-    // const dis = useDispatch()
-    console.log(user);
 
     return <>
         <nav id="nav" className="nav-container">

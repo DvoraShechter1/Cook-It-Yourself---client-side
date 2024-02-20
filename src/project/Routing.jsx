@@ -7,7 +7,7 @@ import { MyRecipes } from "./MyRecipes"
 import { AddRecipe } from "./AddRecipe"
 import { Categories } from "./adm/Categories"
 import { Levels } from "./adm/Levels"
-import { OffCanvasLogin } from "./Login"
+import { Login } from "./Login"
 
 
 export const Routing = () => {
@@ -15,9 +15,7 @@ export const Routing = () => {
         <Routes>
             <Route path="Home" element={<Home></Home>}>
                 <Route path="Register" element={<Register></Register>}></Route>
-                {/* <Route path="Login" element={<Login></Login>}></Route> */}
-                <Route path="Login" element={<OffCanvasLogin></OffCanvasLogin>}></Route>
-
+                <Route path="Login" element={<Login></Login>}></Route>
             </Route>
             <Route path="Recipes" element={<Recipes></Recipes>}></Route>
             <Route path="Personal" element={<Personal></Personal>}>

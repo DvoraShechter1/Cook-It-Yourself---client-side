@@ -4,14 +4,12 @@ import { useDispatch } from "react-redux"
 import { setCurrentUser } from "./redux/action"
 import { useState } from "react"
 import Offcanvas from 'react-bootstrap/Offcanvas';
-
 import './css/style.css'
 
 export const Register = () => {
     const [show, setShow] = useState(true);
 
     const handleClose = () => {setShow(false); nav('/Home')};
-    const handleShow = () => setShow(true);
 
     const nav = useNavigate()//כדי לשנות ניתוב
     const dis = useDispatch()
@@ -29,15 +27,12 @@ export const Register = () => {
                 password: event.target[3].value
             }
             let user1 = await getUser(user.email, user.password)
-            console.log(user1)
             if (user1) {
                 alert('כבר קיים משתמש עם אימייל וסיסמא זהים')
             }
             else {
                 user1 = await addUser(user)
                 dis(setCurrentUser(user1))
-
-                console.log(user1);
                 nav('/Home')
             }
         }
@@ -50,32 +45,32 @@ export const Register = () => {
             <Offcanvas.Body>
             <div className="from">
                 <form onSubmit={(e) => send(e)}>
-                    <label htmlFor={'ln'}>last name:</label>
+                    <label htmlFor={'ln'}>:שם משפחה</label>
                     <br></br>
-                    <input id={'ln'} placeholder="input last name"></input>
-                    <br></br>
-                    <br></br>
-                    <label htmlFor={'fn'}>first name:</label>
-                    <br></br>
-                    <input id={'fn'} placeholder="input first name"></input>
+                    <input id={'ln'} placeholder="הכנס שם משפחה"></input>
                     <br></br>
                     <br></br>
-                    <label htmlFor={'mail'}>mail:</label>
+                    <label htmlFor={'fn'}>:שם פרטי</label>
                     <br></br>
-                    <input id={'mail'} placeholder="input mail" required></input>
-                    <br></br>
-                    <br></br>
-                    <label htmlFor={'pw'}>Password:</label>
-                    <br></br>
-                    <input id={'pw'} placeholder="input password" required type="password"></input>
+                    <input id={'fn'} placeholder="הכנס שם פרטי"></input>
                     <br></br>
                     <br></br>
-                    <label htmlFor={'pwa'}>Password again:</label>
+                    <label htmlFor={'mail'}>:מייל</label>
                     <br></br>
-                    <input id={'pwa'} placeholder="input password again" required type="password"></input>
+                    <input id={'mail'} placeholder="הכנס מייל" required></input>
                     <br></br>
                     <br></br>
-                    <input type="submit" value={'send'}></input>
+                    <label htmlFor={'pw'}>:סיסמה</label>
+                    <br></br>
+                    <input id={'pw'} placeholder="הכנס סיסמה" required type="password"></input>
+                    <br></br>
+                    <br></br>
+                    <label htmlFor={'pwa'}>:אימות סיסמה</label>
+                    <br></br>
+                    <input id={'pwa'} placeholder="הכנס סיסמה שוב" required type="password"></input>
+                    <br></br>
+                    <br></br>
+                    <input type="submit" value={'שלח'}></input>
                 </form>
             </div>
         </Offcanvas.Body>
