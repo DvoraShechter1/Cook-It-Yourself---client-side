@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 export const Categories = () => {
 
     const [list, setList] = useState()
+
     const ref = useRef()
 
     const f_click = async () => {
@@ -23,8 +24,10 @@ export const Categories = () => {
         {list && list.map((x, i) =>
             <h2 key={i}>{x.name}</h2>
         )}
+        <br></br>
         <input ref={ref} placeholder="הכנס קטגוריה חדשה"></input>
         <br></br>
-        <Button onClick={f_click} variant="outline-primary">הוספה</Button>
+
+        <Button onClick={f_click} style={{ backgroundColor: "#030657", border: '#030657 solid 1px' }}>הוספה</Button>
     </>
 }

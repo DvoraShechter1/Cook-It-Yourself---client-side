@@ -25,7 +25,6 @@ function CardDetails(recipe) {
                 <ListGroup.Item>{`קטגוריה: ${r.categoryName}`}</ListGroup.Item>
                 <ListGroup.Item>{`זמן הכנה(בדקות): ${r.preparationTime}`}</ListGroup.Item>
             </ListGroup>
-
             <Card.Body style={{ "text-align": "right" }}>
                 <Card.Text>:הרכיבים הדרושים</Card.Text>
                 <ul style={{ "list-style": "none" }}>
@@ -40,7 +39,7 @@ function CardDetails(recipe) {
                     <Card.Text>{r.instructions}</Card.Text>
                 </Card.Body>
             </ListGroup>
-            <Comments rId={r.id}></Comments>
+            {<Comments rId={r.id}></Comments>}
         </Card>
     );
 }

@@ -2,16 +2,15 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import CardDetails from './CardDetails';
+import '../css/home.css'
 
 function Details(r) {
   const [smShow, setSmShow] = useState(false);
-
   r = r.r
-
   return (
     <>
-      <div style={{ "text-align": "center" }}>
-        <Button onClick={() => setSmShow(true)} className="me-2">
+      <div style={{ "textAlign": "center" }}>
+        <Button style={{ backgroundColor: "#030657", border: '#030657 solid 1px' }} onClick={() => setSmShow(true)} className="me-2">
           לפרטים נוספים
         </Button>
         <Modal
@@ -24,7 +23,7 @@ function Details(r) {
               {r.name}
             </Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body className='co'>
             <CardDetails recipe={r}></CardDetails>
           </Modal.Body>
         </Modal>

@@ -113,8 +113,6 @@ export const getRecipe = async () => {
 
 //הוספת רכיבים למתכון והחזרה האם הצליח
 export const addIngredientsToRecipe = (i) => {
-    debugger
-    console.log(i)
     try {
         axios.post(`${url}/IngredientsToRecipe`, i).then(x => { return x })
     }

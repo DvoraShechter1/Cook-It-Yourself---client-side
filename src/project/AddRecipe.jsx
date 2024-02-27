@@ -26,7 +26,6 @@ export const AddRecipe = () => {
     const send = async (event) => {
         // submit מבטל את ברירת המחדל של האירוע
         event.preventDefault()
-        console.log(currentUser)
         let recipe =
         {
             "name": event.target[0].value,
@@ -41,18 +40,13 @@ export const AddRecipe = () => {
             "note": event.target[1].value,
             "instructions": event.target[4].value
         }
-
-        console.log(recipe)
-
+        
         addRecipe(recipe).then(
             r => {
-                console.log(r)
                 const list = document.getElementsByClassName("amount")
-                console.log(list);
                 setResList([])
                 for (let i = 0; i < list.length; i++) {
                     if (list[i].value != '0') {
-                        debugger
                         const ir = {
                             // "id": 0,
                             "recipeId": r,
@@ -61,18 +55,16 @@ export const AddRecipe = () => {
                             "amount": list[i].value
                         }
                         resList.push(ir)
-                        console.log(resList, '\n', ir)
                     }
                 }
-                console.log(resList)
                 addIngredientsToRecipe(resList)
             }
         )
+        event.target[0].value=''
     }
 
     const f_click = async () => {
         let val = ref.current.value
-        console.log(val);
         if (val)
             setList3(await addIngredient({ Name: val }))
         ref.current.value = ''
@@ -130,10 +122,11 @@ export const AddRecipe = () => {
             <br></br>
             <input ref={ref} placeholder="הוסף רכיב"></input>
             <br></br>
-            <Button id="btn" onClick={f_click} variant="outline-primary">הוסף</Button>
+            <Button onClick={f_click} style={{ backgroundColor: "#030657", border: '#030657 solid 1px' }}>הוסף</Button>
+            {/* {ref?.current?.value && <Button id="btn" onClick={f_click} variant="outline-primary">הוסף</Button>} */}
             <br></br>
             <br></br>
-            <input type="submit" value={'send'}></input>
+            <input style={{color: 'white', backgroundColor: "#030657", border: '#030657 solid 1px' }} type="submit" value={'שלח מתכון'}></input>
         </form>
     </>
 }

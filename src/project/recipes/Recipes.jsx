@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { getCategory, getLevel, getRecipe, getUsers } from "../api"
 import { Recipe } from "./Recipe"
 
+import '../css/nav.css'
 import '../css/select.css'
 import '../css/recipes.css'
 

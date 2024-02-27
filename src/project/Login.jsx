@@ -5,6 +5,7 @@ import { getUser } from "./api"
 import { useDispatch, useSelector } from "react-redux"
 import { setCurrentUser } from "./redux/action"
 import './css/style.css'
+import Button from "react-bootstrap/esm/Button";
 
 export function Login() {
     const nav = useNavigate()//כדי לשנות ניתוב
@@ -45,7 +46,7 @@ export function Login() {
                         <form onSubmit={(e) => send(e)}>
                             <label htmlFor={'mail'}>:מייל</label>
                             <br></br>
-                            <input id={'mail'} placeholder="הכנס מייל" required></input>
+                            <input type="email" id={'mail'} placeholder="הכנס מייל" required></input>
                             <br></br>
                             <br></br>
                             <label htmlFor={'pw'}>:סיסמה</label>

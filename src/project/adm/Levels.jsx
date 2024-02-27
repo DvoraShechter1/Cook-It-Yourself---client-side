@@ -23,7 +23,7 @@ export const Levels = () => {
         )}
         <input ref={ref} placeholder="הכנס רמה נוספת"></input>
         <br></br>
-        <Button onClick={f_click} variant="outline-primary">הוספה</Button>
+        <Button onClick={f_click} style={{ backgroundColor: "#030657", border: '#030657 solid 1px' }}>הוספה</Button>
     </>
 
 }

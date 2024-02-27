@@ -25,6 +25,7 @@ export const Comments = (rId) => {
   return (
     <>
       <Button
+      style={{backgroundColor: "#030657"}}
         onClick={() => setOpen(!open)}
         aria-controls="example-collapse-text"
         aria-expanded={open}
@@ -36,7 +37,7 @@ export const Comments = (rId) => {
             {user && <div>
               <input ref={ref} placeholder="הכנס תגובה נוספת"></input>
               <br></br>
-              {ref?.current?.value && <Button onClick={f_click} variant="outline-primary">הוספה</Button>}
+              {ref?.current?.value && <Button id='btnC' onClick={f_click} style={{ backgroundColor: "#030657", border: '#030657 solid 1px' }}>הוספה</Button>}
             </div>}
           </div>
         </Collapse>

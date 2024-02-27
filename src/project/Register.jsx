@@ -9,7 +9,7 @@ import './css/style.css'
 export const Register = () => {
     const [show, setShow] = useState(true);
 
-    const handleClose = () => {setShow(false); nav('/Home')};
+    const handleClose = () => { setShow(false); nav('/Home') };
 
     const nav = useNavigate()//כדי לשנות ניתוב
     const dis = useDispatch()
@@ -43,37 +43,37 @@ export const Register = () => {
                 <Offcanvas.Title>הרשמה</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-            <div className="from">
-                <form onSubmit={(e) => send(e)}>
-                    <label htmlFor={'ln'}>:שם משפחה</label>
-                    <br></br>
-                    <input id={'ln'} placeholder="הכנס שם משפחה"></input>
-                    <br></br>
-                    <br></br>
-                    <label htmlFor={'fn'}>:שם פרטי</label>
-                    <br></br>
-                    <input id={'fn'} placeholder="הכנס שם פרטי"></input>
-                    <br></br>
-                    <br></br>
-                    <label htmlFor={'mail'}>:מייל</label>
-                    <br></br>
-                    <input id={'mail'} placeholder="הכנס מייל" required></input>
-                    <br></br>
-                    <br></br>
-                    <label htmlFor={'pw'}>:סיסמה</label>
-                    <br></br>
-                    <input id={'pw'} placeholder="הכנס סיסמה" required type="password"></input>
-                    <br></br>
-                    <br></br>
-                    <label htmlFor={'pwa'}>:אימות סיסמה</label>
-                    <br></br>
-                    <input id={'pwa'} placeholder="הכנס סיסמה שוב" required type="password"></input>
-                    <br></br>
-                    <br></br>
-                    <input type="submit" value={'שלח'}></input>
-                </form>
-            </div>
-        </Offcanvas.Body>
-    </Offcanvas >
+                <div className="from">
+                    <form onSubmit={(e) => send(e)}>
+                        <label htmlFor={'fn'}>:שם פרטי</label>
+                        <br></br>
+                        <input id={'fn'} placeholder="הכנס שם פרטי"></input>
+                        <br></br>
+                        <br></br>
+                        <label htmlFor={'ln'}>:שם משפחה</label>
+                        <br></br>
+                        <input id={'ln'} placeholder="הכנס שם משפחה"></input>
+                        <br></br>
+                        <br></br>
+                        <label htmlFor={'mail'}>:אימייל</label>
+                        <br></br>
+                        <input type="email" id={'mail'} placeholder="הכנס מייל" required></input>
+                        <br></br>
+                        <br></br>
+                        <label htmlFor={'pw'}>:סיסמה</label>
+                        <br></br>
+                        <input id={'pw'} placeholder="הכנס סיסמה" required type="password"></input>
+                        <br></br>
+                        <br></br>
+                        <label htmlFor={'pwa'}>:אימות סיסמה</label>
+                        <br></br>
+                        <input id={'pwa'} placeholder="הכנס סיסמה שוב" required type="password"></input>
+                        <br></br>
+                        <br></br>
+                        <input type="submit" value={'שלח'}></input>
+                    </form>
+                </div>
+            </Offcanvas.Body>
+        </Offcanvas >
     </>
 }
