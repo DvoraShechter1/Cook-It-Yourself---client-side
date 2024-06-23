@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react"
 import { addIngredient, addIngredientsToRecipe, addRecipe, getCategory, getIngredient, getLevel, getUser } from "./api"
 import { useSelector } from "react-redux"
 import Button from "react-bootstrap/esm/Button"
+import { useNavigate } from "react-router"
 
 export const AddRecipe = () => {
 
@@ -20,6 +21,9 @@ export const AddRecipe = () => {
             .then(x => { setList3(x) })
     }, [])
 
+    const nav = useNavigate()//כדי לשנות ניתוב
+
+
     const ref = useRef()
     let currentUser = useSelector(u => { return u.currentUser });
 
@@ -34,13 +38,15 @@ export const AddRecipe = () => {
             "userId": currentUser.id,
             "userName": currentUser.firstName + " " + currentUser.lastName,
             // "categoryId": event.target[5].key,
+            "categoryId": document.getElementById(event.target[5].value).getAttribute("data-id"),
             "categoryName": event.target[5].value,
             // "levelId": event.target[6].key,
+            "levelId" : document.getElementById(event.target[6].value).getAttribute("data-id"),
             "levelName": event.target[6].value,
             "note": event.target[1].value,
             "instructions": event.target[4].value
         }
-        
+
         addRecipe(recipe).then(
             r => {
                 const list = document.getElementsByClassName("amount")
@@ -60,7 +66,7 @@ export const AddRecipe = () => {
                 addIngredientsToRecipe(resList)
             }
         )
-        event.target[0].value=''
+        nav('../../home')
     }
 
     const f_click = async () => {
@@ -99,14 +105,14 @@ export const AddRecipe = () => {
             <br></br>
             <select required>
                 {list1 && list1.map((x, i) =>
-                    <option key={x.id}>{x.name}</option>
+                    <option id={x.name} data-id={x.id} key={x.id}>{x.name}</option>
                 )}
             </select>
             <br></br>
             <br></br>
             <select required>
                 {list2 && list2.map((x, i) =>
-                    <option key={x.id}>{x.name}</option>
+                    <option id={x.name} data-id={x.id} key={x.id}>{x.name}</option>
                 )}
             </select>
             <br></br>

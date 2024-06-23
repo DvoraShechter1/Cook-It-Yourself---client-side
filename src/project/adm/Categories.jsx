@@ -24,7 +24,6 @@ export const Categories = () => {
         {list && list.map((x, i) =>
             <h2 key={i}>{x.name}</h2>
         )}
-        <br></br>
         <input ref={ref} placeholder="הכנס קטגוריה חדשה"></input>
         <br></br>
 
